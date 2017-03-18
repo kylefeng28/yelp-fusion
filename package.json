@@ -19,6 +19,9 @@
     "api"
   ],
   "author": "Tony Liu",
+  "contributors": [
+	  "Kyle Feng"
+  ],
   "license": "MIT",
   "dependencies": {
     "request": "^2.81.0",
