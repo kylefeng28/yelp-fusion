@@ -1,6 +1,6 @@
 # yelp-fusion
 
-This is a fork of [tonybadguy/yelp-fusion](https://github.com/tonybadguy/yelp-fusion), using [request-promise](https://github.com/request/request-promise)
+This is a fork of [tonybadguy/yelp-fusion](https://github.com/tonybadguy/yelp-fusion), using [axios](https://github.com/mzabriskie/axios)
 instead of [tonybadguy/call-me-maybe](https://github.com/tonybadguy/call-me-maybe).
 
 Yelp Fusion API client for Node.js with Promises
@@ -20,7 +20,7 @@ npm install yelp-fusion --save
 const yelp = require('yelp-fusion');
 
 yelp.accessToken(clientId, clientSecret).then(response => {
-  console.log(response.access_token);
+  console.log(response.data.access_token);
 }).catch(e => {
   console.log(e);
 });
@@ -38,7 +38,7 @@ client.search({
   term:'Four Barrel Coffee',
   location: 'san francisco, ca'
 }).then(response => {
-  console.log(response.businesses[0].name);
+  console.log(response.data.businesses[0].name);
 }).catch(e => {
   console.log(e);
 });
@@ -52,13 +52,13 @@ client.search({
 const yelp = require('yelp-fusion');
 
 yelp.accessToken(clientId, clientSecret).then(response => {
-  const client = yelp.client(response.access_token);
+  const client = yelp.client(response.data.access_token);
 
   client.search({
     term:'Four Barrel Coffee',
     location: 'san francisco, ca'
   }).then(response => {
-    console.log(response.businesses[0].name);
+    console.log(response.data.businesses[0].name);
   });
 }).catch(e => {
   console.log(e);
@@ -77,7 +77,7 @@ const client = yelp.client(token);
 client.phoneSearch({
   phone:'+14157492060'
 }).then(response => {
-  console.log(response.businesses[0].name);
+  console.log(response.data.businesses[0].name);
 }).catch(e => {
   console.log(e);
 });
@@ -94,7 +94,7 @@ const client = yelp.client(token);
 client.transactionSearch('delivery', {
   location:'san diego'
 }).then(response => {
-  console.log(response.businesses[0].name);
+  console.log(response.data.businesses[0].name);
 }).catch(e => {
   console.log(e);
 });
@@ -109,7 +109,7 @@ const yelp = require('yelp-fusion');
 const client = yelp.client(token);
 
 client.business('gary-danko-san-francisco').then(response => {
-  console.log(response.name);
+  console.log(response.data.name);
 }).catch(e => {
   console.log(e);
 });
@@ -124,7 +124,7 @@ const yelp = require('yelp-fusion');
 const client = yelp.client(token);
 
 client.reviews('gary-danko-san-francisco').then(response => {
-  console.log(response.reviews[0].text);
+  console.log(response.data.reviews[0].text);
 }).catch(e => {
   console.log(e);
 });
@@ -141,7 +141,7 @@ const client = yelp.client(token);
 client.autocomplete({
   text:'pizza'
 }).then(response => {
-  console.log(response.terms[0].text);
+  console.log(response.data.terms[0].text);
 }).catch(e => {
   console.log(e);
 });

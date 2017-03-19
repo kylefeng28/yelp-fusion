@@ -20,12 +20,11 @@
   ],
   "author": "Tony Liu",
   "contributors": [
-	  "Kyle Feng"
+    "Kyle Feng"
   ],
   "license": "MIT",
   "dependencies": {
-    "request": "^2.81.0",
-    "request-promise": "^4.2.0"
+    "axios": "^0.15.3"
   },
   "devDependencies": {
     "tap": "^8.0.0"
